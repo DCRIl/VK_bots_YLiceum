@@ -26,12 +26,9 @@ def get_attachments(text, upload):
 
 
 def main():
-    login, password = "ваш логин", "ваш пароль"
     vk_session = vk_api.VkApi(
-        login, password,
-        auth_handler=auth_handler,
         token="ваш токен",
-        app_id=6287487
+        app_id=6121396
     )
     longpoll = VkBotLongPoll(vk_session, 225383346)
     upload = VkUpload(vk_session)
