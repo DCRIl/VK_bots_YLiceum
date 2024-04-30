@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Activities</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">likes</th>
+        <th scope="col">comments</th>
+        <th scope="col">subscribed</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    <tr>
+        <td>{{ st.activity["likes"] }}</td>
+        <td>{{ st.activity["comments"] }}</td>
+        <td>{{ st.activity["subscribed"] }}</td>
+    </tr>
+    </tbody>
+</table>
+<h1>Ages</h1>
+<table class="table">
+    <thead>
+    <tr>
+        {% for it in st.reach["ages"] %}
+            <th scope="col">it["value"]</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    <tr>
+        {% for it in st.reach["ages"] %}
+            <th scope="col">it["count"]</th>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+<h1>Cities</h1>
+<table class="table">
+    <thead>
+    <tr>
+        {% for it in st.reach["cities"] %}
+            {% if it["count"] > 0 %}
+                <th scope="col">it["name"]</th>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    </thead>
+</table>
+{% endblock %}
